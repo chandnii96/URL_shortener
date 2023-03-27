@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block titleblock %}    
+    Home
+{% endblock %}
+
+{% block bodyblock %}    
+
+<h1 align="center"><u>URL SHORTENER( Teeny- Weeny )</u></h1>
+
+<form action="{{ url_for('home_page')}}" method="post">
+    <tr></tr><td><h3 style="font-size: 2em;">Original URL</h3></td></tr>
+    <tr><td><input type="text" name="url" style="font-size: 13pt; height: 30px ; width: 1000px;" placeholder="Insert URL here" title="Original URL"></td></tr>
+    <tr><td><input type="submit" value="Shorten"></td></tr>
+    <tr><td><h3 style="font-size: 2em;">Shorten URL</h3></td></tr>
+    <tr>
+        <td>
+        {% if error==0 %}
+        <a href=http://127.0.0.1:5000/{{final}}><input style="font-size: 13pt; height: 30px ; width: 950px;" type="text" value="http://127.0.0.1:5000/{{final}}" title="Short URL" id="myInput" readonly></a>
+        <button type="button" onclick="myFunc()" class="btn-clipboard" title="Copy to clipboard" style="border-radius: 8px;"><svg class="bi" width="0.009em" height="0.4em" fill="currentColor"><use xlink:href="/bootstrap-icons.svg#clipboard"></use></svg>
+        
+        {% elif error==1 %}
+        
+        <div class="alert alert-danger" role="alert" style="position:fixed; left: 0px; width: 100%;">
+         not a valid url!!!
+        </div>
+        {% endif %}
+        </td>
+    </tr>
+</form>
+</table>
+{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        {% block titleblock %}    
+    
+        {% endblock %}
+    </title>
+    <style>
+      body{
+          background-image:url("https://tse1.mm.bing.net/th?id=OIP.7vhD5ODz_YWDddOuMAG1hwHaEK&pid=Api&P=0");
+
+          background-repeat: no-repeat;
+          background-size: cover;
+
+      }
+  </style>
+    
+<body>
+    <nav>
+        <ul>
+        <li><a href="{{ url_for('home_page') }}">Home</a></li>
+        <li><a href="{{ url_for('display_page') }}">Display</a></li>
+    </ul>
+    </nav>
+    
+    
+    {% block bodyblock %}    
+    
+    {% endblock %}
+</body>
+</html>
